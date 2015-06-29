@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-</html>
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
 <link rel="stylesheet" href="style.css">
 
 <title> Breno Leite </title>
@@ -26,32 +25,37 @@
       <!-- Top bar -->
       <div class="navbar-collapse collapse" id="navbar-main">
 	<ul class="nav navbar-nav">
-            <li> <a href="www.google.com"> Profile </a> </li>
+          <li> <a class="click" href="about.html"> About Me </a> </li>
+	  <li> <a class="click" href="resume.html"> Resume </a> </li>
 	</ul>
       </div>
     </div>
   </nav>
   <center>
-    <div class="content">
-      <div class="info">
-	<ul id="first">
-	  <li> <img src="breno.jpg" class="img-circle" alt="Breno Leite" width="120" height="100"> </li> 
-	  </li>
-	</ul>
-	<ul>
-	    <li>
-	    <p id="name"> Breno Leite </p>
-	    </li>
-	    <li>
-	    <p id="major"> Computer Science </p>
-	    </li>
-	  </li>
-	</ul>
-      </div>
+  <div class="container">
+    <div class="info">
+      <ul id="first">
+	<li> <img src="breno.jpg" class="img-circle" alt="Breno Leite" width="120" height="100"> </li> 
+      </ul>
+      <ul>
+	<li>
+	  <p id="name"> Breno Leite </p>
+	</li>
+	<li>
+	  <p id="major"> Computer Science </p>
+	</li>
+      </ul>
     </div>
+  </div>
   </center>
+  <div id="main-wrapper">
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<script src="javascript.js"></script>
 </body>
 </html>
