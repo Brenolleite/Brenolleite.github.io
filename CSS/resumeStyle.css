@@ -1,0 +1,21 @@
+#pdfs li {
+    display: inline-block;
+    float: left;
+    padding-left: 10px;
+    padding-bottom:10px;
+}
+
+.btn {
+    padding: 5px 5px 5px 5px;
+}
+
+a p {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+}
+
+a span {
+    padding-left: 5px;
+}

@@ -25,16 +25,19 @@ hr {
     padding-top: 0px;
 }
 
-nav ul li a:active {
-    background-color: black;
+.active {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 nav ul li a:hover { 
-    background-color: black;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+}
+
+#left li {
+    display: inline-block;
+    float:none;
 }
 
 #name {
@@ -88,5 +91,17 @@ h3 {
     #major {
 	padding-left: 15px;
 	text-align: left;
-    }        
+    } 
+
+    #left {
+	float: left;
+    }
+
+    #left li a {
+	height: 35px;
+	width: 35px;
+	vertical-align: top;
+	display: inline-block;
+	float: left;
+    }
 }
