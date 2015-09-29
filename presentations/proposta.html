@@ -33,7 +33,7 @@
 	
 	<section data-markdown>
 	  <script type="text/template">
-            ## Jogos sob demanda: implementação de um servidor streaming
+            ## Jogos sob demanda: implementação de um servidor <i>streaming</i>
 
             Breno Leite
 	  </script>
@@ -45,11 +45,11 @@
 	  <section>
             <h2> Jogos sob demanda </h2>
 	    <ul>
-	      <li>Games on demand</li>
+	      <li><i>Games on demand</i></li>
 	      <li>Jogos em nuvens</li>
-	      <li><b>Cloud gaming</b></li>
+	      <li><b><i>Cloud gaming</i></b></li>
 	      <li>Computação em nuvens</li>
-	      <li>Cloud computing</li>
+	      <li><i>Cloud computing</i></li>
 	    </ul>
 	  </section>
 	  <section>
@@ -65,7 +65,7 @@
 	  <section>
 	  <h3>Vantagens</h3>
 	  <ul>
-	    <li> Hardware </li>
+	    <li> <i>Hardware</i> </li>
 	    <li> Acessibilidade </li>
 	    <li> Desenvolvimento </li>
 	  </ul>
@@ -89,7 +89,7 @@
 	  <section>
 	    <h4> Serviços - Netflix </h4>
 	      <img src="./images/Netflix.jpg" height="500" width="800">
-	      <figcaption> <small> Retirado de http://churchm.ag/numbers-internet-use/ </small> </figcaption>	   
+	      <figcaption> <small> Retirado de http://www.statista.com/statistics/250934/quarterly-number-of-netflix-streaming-subscribers-worldwide/ </small> </figcaption>	   
 	  </section>
 	  <section>
 	    <h4> Serviços - Spotify </h4>
@@ -148,10 +148,57 @@
 	</section>
 	<section>
 	  <h2>Objetivos</h2>	  
+	  <ul>
+	    <li> Criação de um servidor </li>
+	    <li> Criação de um cliente  </li>
+	    <li> Criação de um jogo 2D  </li>
+	  </ul>
 	</section>
 	<section>
 	  <section>
 	    <h2>Metodologia</h2>
+	  </section>
+	  <section>
+	    <h3>Servidor</h3>
+	    <ul>
+	      <li> Linguagem C/C++ </li>
+	      <li> Protocolos: RTCP(<i>Real Time Control Protocol</i>)/RTSP(<i>Real Time Stream Protocol</i>)/RTP(<i>Real Time Protocol</i>)</li>
+	      <li> Biblioteca FFmep ou JMpeg (codificação)</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Cliente</h3>
+	    <ul>
+	      <li> Linguagem para Web (PHP ou Javascript)</li>
+	      <li> Biblioteca FFmep ou JMpeg (decodificação)</li>	      
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Jogo</h3>
+	    <ul>
+	      <li> Linguagem C/C++ </li>
+	      <li> Biblioteca SDL </li>	      
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Diferenças</h3>
+	    <ul>
+	      <li> Livre </li>
+	      <li> Captura <i>frames</i> diretamente do <i>buffer</i> </li>	      
+	    </ul>
+	  </section>
+	  <section>
+	    <h4>Vantagens</h4>
+	    <ul>
+	      <li> Não necessita de virtualização </li>
+	      <li> Mais Acessível (console) </li>	    
+	    </ul>	    	   
+	  </section>
+	  <section>	    	   
+	    <h4>Desvantagens</h4>
+	    <ul>
+	      <li> Alteração no código </li>	      
+	    </ul>
 	  </section>
 	</section>
 	<section>
@@ -160,7 +207,15 @@
 	</section>
 	<section>
 	  <h3> Referências </h3>
-	  <p><small>http://www.videogamesintelligence.com/cloud-gaming-usa/</small></	  
+	  <p><small>HUANG, C.-Y. et al. Gaminganywhere: An open cloud gaming system. ACM Multimedia Systems,2013.</small></p>
+	  <p><small>Shea, Ryan, et al. "Cloud gaming: architecture and performance." Network, IEEE 27.4 (2013).</small></p>
+	  <p><small>http://www.videogamesintelligence.com/cloud-gaming-usa/</small></p>
+	  <p><small>https://www.playstation.com/en-us/explore/psnow/devices/</small></p>
+	  <p><small>http://shield.nvidia.com/</small></p>
+	  <p><small>http://amigobulls.com/articles/steep-valuation-might-complicate-dropbox-ipo/</small></p>
+	  <p><small>http://www.statista.com/statistics/244995/number-of-paying-spotify-subscribers/</small></p>
+	  <p><small>http://churchm.ag/numbers-internet-use/</small></p>
+	  <p><small>http://www.statista.com/statistics/250934/quarterly-number-of-netflix-streaming-subscribers-worldwide/</small></p>
 	</section>
       </div>
     </div>
