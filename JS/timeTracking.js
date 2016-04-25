@@ -25,7 +25,6 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	    $scope.start();
 	
 	$scope.editDescription(selectedTimer);
-	backUp();
     }
     
     $scope.selectTimer = function(index){
@@ -53,14 +52,20 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	$scope.timers[index].edit = false;
     }
 
+    $scope.enterAsTab = function(event, index){
+	if(event.keyCode == 13 && $scope.timers[index].edit)
+	    $scope.leaveEdition(index);
+    }
+
     $scope.deleteTimer = function(index){
 	swal({
-	    title: "Are you sure?",
-	    text: "Your will not be able to recover this timer!",
+	    title: "Deseja excluir contador?",
+	    text: "Não será possível reverter essa operação!",
 	    type: "warning",
 	    showCancelButton: true,
 	    confirmButtonColor: "#DD6B55",
-	    confirmButtonText: "Yes, delete it!",
+	    confirmButtonText: "Sim!",
+	    cancelButtonText: "Cancelar",
 	    closeOnConfirm: true}, 
 	    function(){ 
 		if(index == selectedTimer)
@@ -69,11 +74,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 		if(index < selectedTimer)
 		    selectedTimer -= 1;
 		
-		$scope.timers.splice(index, 1);
-		if($scope.timers.length > 0)
-		    backUp();
-		else
-		    $cookies.remove('Timer');
+		$scope.timers.splice(index, 1);		
 		$scope.$digest();
 	    });	
     }
@@ -101,6 +102,24 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	return hours + ':' + minutes  + ':' + seconds;
     }
     
+    $scope.clearList = function() {
+	swal({
+	    title: "Deseja limpar toda a lista?",
+	    text: "Não será possível reverter essa operação!",
+	    type: "warning",
+	    showCancelButton: true,
+	    confirmButtonColor: "#DD6B55",
+	    confirmButtonText: "Sim",
+	    cancelButtonText: "Cancelar",
+	    closeOnConfirm: true}, 
+	    function(){ 
+		$scope.pause();
+		selectedTimer -= 1;
+		$scope.timers = [];
+		$scope.$digest();
+	    });	
+    }
+    
     var ticking = function(){
 	$scope.timers[selectedTimer].time += 1;
     }
@@ -117,14 +136,13 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     }
     
     
-    $window.onbeforeunload = function () {
-	return 'Time Tracking, are you sure?';
+    $window.onbeforeunload = function(event) {
+	if($scope.timers.length > 0)
+	    backUp();
+	else
+	    $cookies.remove('Timer');
     }
     
-
-    var cookiesInterval = $interval(function(){
-	backUp();
-    },300000); 
     
     var backUp = function(){
 	$cookies.put('Timer', JSON.stringify($scope.timers, function(key, value){
@@ -138,23 +156,6 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     
     cookieTimer = $cookies.get('Timer');
     if(cookieTimer != undefined){
-	swal({
-	    title: "Load timers?",
-	    text: "",
-	    type: "warning",
-	    showCancelButton: true,
-	    confirmButtonColor: "#DD6B55",
-	    confirmButtonText: "Yes, load it!",
-	    cancelButtonText: "No, don't load it!",
-	    closeOnConfirm: true,
-	    closeOnCancel: true }, 
-	     function(isConfirm){ 
-		 if (isConfirm) {
-		     $scope.timers = JSON.parse(cookieTimer);
-		     $scope.$digest();
-		 } else {
-		     $cookies.remove('Timer');		     
-		 }
-	     });
+	$scope.timers = JSON.parse(cookieTimer);
     }
 }]);

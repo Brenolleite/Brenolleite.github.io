@@ -19,13 +19,13 @@
 	<thead>
 	  <th> Tempo </th>
 	  <th> Descrição </th>
-	  <th> <i class="fa fa-plus-circle fa-2x" aria-hidden="true" ng-click="newTimer()"></i> </th>
+	  <th> <i title="Inserir contador" class="fa fa-plus-circle fa-2x" aria-hidden="true" ng-click="newTimer()"></i> <i ng-show="timers.length > 0" title="Limpar lista" class="fa fa-trash fa-2x" aria-hidden="true" ng-click="clearList()"></i> </td> </th>
 	</thead>
 	<tr ng-repeat="timer in timers">
-	  <td class="col-sm-2 pointer"  ng-click="selectTimer($index)">  <i ng-class="defineClass($index)" aria-hidden="true"></i> {{displayTime(timer.time)}} </td>
+	  <td title="Ligar contador" class="col-sm-2 pointer"  ng-click="selectTimer($index)">  <i ng-class="defineClass($index)" aria-hidden="true"></i> {{displayTime(timer.time)}} </td>
 	  <td class="col-sm-9" ng-if="timer.edit == false"> {{timer.description}}</td>
-	  <td class="col-sm-9" ng-if="timer.edit == true"> <input type="text" class="form-control" placeholder="Descrição" ng-blur="leaveEdition($index)" id="desc{{$index}}" ng-model="timer.description"> </td>
-	  <td class="col-sm-1"> <i class="fa fa-pencil" aria-hidden="true" ng-click="editDescription($index)"></i> <i class="fa fa-trash" aria-hidden="true" ng-click="deleteTimer($index)"></i> </td>
+	  <td class="col-sm-9" ng-if="timer.edit == true"> <input type="text" class="form-control" placeholder="Descrição" ng-blur="leaveEdition($index)" id="desc{{$index}}" ng-model="timer.description" ng-keypress="enterAsTab($event, $index)"> </td>
+	  <td class="col-sm-1"> <i title="Editar descrição" class="fa fa-pencil" aria-hidden="true" ng-click="editDescription($index)"></i> <i title="Excluir contador" class="fa fa-trash" aria-hidden="true" ng-click="deleteTimer($index)"></i> </td>
 	</tr>
       </table>
     </div>
