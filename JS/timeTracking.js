@@ -24,7 +24,8 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	if(timer == undefined)
 	    $scope.start();
 	
-	$scope.editDescription(selectedTimer);	    
+	$scope.editDescription(selectedTimer);
+	backUp();
     }
     
     $scope.selectTimer = function(index){
@@ -45,7 +46,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	    var element = document.getElementById('desc' + index);
             if(element)
 		element.focus();
-	}, 10);
+	}, 10);	
     }
 
     $scope.leaveEdition = function(index){
@@ -69,6 +70,11 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 		    selectedTimer -= 1;
 		
 		$scope.timers.splice(index, 1);
+		if($scope.timers.length > 0)
+		    backUp();
+		else
+		    $cookies.remove('Timer');
+		$scope.$digest();
 	    });	
     }
     
@@ -117,8 +123,18 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     
 
     var cookiesInterval = $interval(function(){
-	$cookies.put('Timer', JSON.stringify($scope.timers));
-    },300000) 
+	backUp();
+    },300000); 
+    
+    var backUp = function(){
+	$cookies.put('Timer', JSON.stringify($scope.timers, function(key, value){
+	    if( key === "$$hashKey" ) {
+		return undefined;
+	    }
+	    
+	    return value;
+	}));
+    }
     
     cookieTimer = $cookies.get('Timer');
     if(cookieTimer != undefined){
@@ -135,15 +151,10 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	     function(isConfirm){ 
 		 if (isConfirm) {
 		     $scope.timers = JSON.parse(cookieTimer);
+		     $scope.$digest();
 		 } else {
-		     $cookies.remove('Timer');
-		     $scope.newTimer();
-		     $scope.start();
+		     $cookies.remove('Timer');		     
 		 }
 	     });
-    }
-    else{
-	$scope.newTimer();
-	$scope.start();
     }
 }]);
