@@ -1,7 +1,7 @@
 var app = angular.module('timeTracking', ['ngCookies']);
 
 app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', '$cookies', function($scope, $interval, $window, $timeout, $cookies) {
-    var timer, selectedTimer = -1;
+    var timer, selectedTimer = -1, editing = false;;
     
     $scope.timers = [];
     
@@ -13,7 +13,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     $scope.pause = function(){
 	$interval.cancel(timer);
 	timer = undefined;
-	selectTimer = -1;
+	selectedTimer = -1;
     }
     
     $scope.newTimer = function(){	
@@ -31,15 +31,14 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	if(timer == undefined)
 	    $scope.start();
 
-	if(selectedTimer == index){
+	if(selectedTimer == index)
 	    $scope.pause();
-	    selectedTimer = -1;
-	}
 	else
 	    selectedTimer = index;    
     }
 
     $scope.editDescription = function(index){
+	editing = true;
 	$scope.timers[index].edit = true;
 	$timeout(function(){
 	    var element = document.getElementById('desc' + index);
@@ -49,6 +48,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     }
 
     $scope.leaveEdition = function(index){
+	editing = false;
 	$scope.timers[index].edit = false;
     }
 
@@ -68,11 +68,10 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 	    cancelButtonText: "Cancelar",
 	    closeOnConfirm: true}, 
 	    function(){ 
-		if(index == selectedTimer)
+		if(index == selectedTimer){
 		    $scope.pause();
-		
-		if(index < selectedTimer)
 		    selectedTimer -= 1;
+		}
 		
 		$scope.timers.splice(index, 1);		
 		$scope.$digest();
@@ -80,8 +79,16 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     }
     
     $scope.keyPress = function(event){
-	if(event.keyCode == 87 && event.shiftKey == true)
+	if(editing)
+	    return;
+	if((event.keyCode == 87 && event.shiftKey) || event.keyCode == 110)
 	    $scope.newTimer();
+	else if(event.keyCode == 112 && timer != undefined){
+	    $scope.pause();
+	    $scope.$digest();
+	}
+	else if(event.keyCode == 100 && selectedTimer != -1)
+	    $scope.deleteTimer(selectedTimer);
     }
 
     $scope.displayTime = function(time){
@@ -128,11 +135,19 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
         $scope.pause();
     });
     
-    $scope.defineClass = function(index){
-	if(index == selectedTimer)
-	    return 'fa fa-clock-o fa-pulse icon-green'
+    $scope.defineClass = function(type, index){
+	if(type == 'i'){
+	    if(index == selectedTimer)
+		return 'fa fa-clock-o fa-pulse icon-green';
 	
-	return 'fa fa-clock-o'
+	    return 'fa fa-clock-o';
+	}
+	else if(type == 'tr'){
+	    if(index == selectedTimer)
+		return 'active-row';
+	    
+	    return '';
+	}
     }
     
     

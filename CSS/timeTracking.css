@@ -7,5 +7,9 @@ i{
 }
 
 .icon-green{
-    color: green;
+    color: #1B5E20;
+}
+
+.active-row{
+    background: #DCEDC8;
 }
