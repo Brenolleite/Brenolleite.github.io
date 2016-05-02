@@ -35,9 +35,9 @@
       var verificar = function(){
       var tam = $('#username')[0].value.length;
       if(tam >= 5 && tam <= 10)
-        swal("Sucesso!", "Usuário Válido!", "success");
+        swal({title: "Sucesso", text: "Usuário Válido!", type:"success", timer: 1300});
       else
-        swal("Erro!", "Usuário Inválido!", "error");
+        swal({title: "Erro", text: "Usuário Inválido!", type:"error", timer: 1300});     
       }
     </script>
   </body>
