@@ -25,8 +25,8 @@
 	  <td ng-if="timer.editTimer == false" title="Ligar contador" class="col-sm-2 pointer" ng-click="selectTimer($index)">  <i ng-class="defineClass('i', $index)" aria-hidden="true"></i> 
       {{displayTime(timer.time)}}
     </td>
-    <td ng-if="timer.editTimer == true" >
-      <input type="text" class="form-control" ui-mask="99:99:99" ng-blur="saveTimer($index)" id="timer{{$index}}" ng-model="timer.editedTime" ng-keypress="enterAsTab($event, $index)" /> 
+    <td ng-if="timer.editTimer == true">
+      <input type="text" class="form-control" ui-mask="99:99:99" ng-blur="leaveEdition($index)" id="timer{{$index}}" ng-model="timer.editedTime" ng-keypress="enterAsTab($event, $index)" /> 
     </td>    
 	  <td class="col-sm-9" ng-if="timer.editDesc == false" ng-dblclick="editDescription($index)"> 
       {{timer.description}}
