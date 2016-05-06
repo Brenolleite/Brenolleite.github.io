@@ -19,7 +19,8 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
   $scope.newTimer = function(){	
 		$scope.timers.push({time: 0,
 												description: '',
-												edit: false});
+												editDesc: false,
+                        editTimer: false});
 		selectedTimer = $scope.timers.length - 1;
 		if(timer == undefined)
 			$scope.start();
@@ -39,7 +40,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 
   $scope.editDescription = function(index){
 		editing = true;
-		$scope.timers[index].edit = true;
+		$scope.timers[index].editDesc = true;
 		$timeout(function(){
 			var element = document.getElementById('desc' + index);
       if(element)
@@ -47,13 +48,24 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 		}, 10);	
   }
 
+  $scope.editTimer = function(index){
+    editing = true;
+		$scope.timers[index].editTimer = true;
+		$timeout(function(){
+			var element = document.getElementById('timer' + index);
+      if(element)
+				element.focus();
+		}, 10);
+  }
+
   $scope.leaveEdition = function(index){
 		editing = false;
-		$scope.timers[index].edit = false;
+		$scope.timers[index].editDesc = false;
+    $scope.timers[index].editTimer = false;
   }
 
   $scope.enterAsTab = function(event, index){
-		if(event.keyCode == 13 && $scope.timers[index].edit)
+		if(event.keyCode == 13 && editing)
 			$scope.leaveEdition(index);
   }
 
@@ -128,6 +140,17 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
   }
   
   var ticking = function(){
+    var date = new Date();
+    if ((date.getHours() === 18 && date.getMinutes() === 0) || (date.getHours() === 12 && date.getMinutes() === 0)) {
+      $scope.pause();
+      swal({
+			title: "Horário de descanso!",
+			text: "O seu contador foi parado automaticamente!",
+			type: "warning"});
+      
+      return;
+    }
+    
 		$scope.timers[selectedTimer].time += 1;
   }
   
@@ -179,4 +202,6 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
   if(cookieTimer != undefined){
 		$scope.timers = JSON.parse(cookieTimer);
   }
+  
+  $scope.time = 0;
 }]);
