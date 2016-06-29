@@ -33,7 +33,7 @@
 	
 	<section data-markdown>
 	  <script type="text/template">
-            ## Jogos sob demanda: implementação de um servidor <i>streaming</i>
+            ## Um comparativo entre MJPEG e FMPEG aplicados na compressão de vídeo em um sistema de jogos sob demanda
 
             Breno Leite
 	  </script>
@@ -42,11 +42,13 @@
 	  <h2>Índice</h2>
 	  <ol>
 	    <li>Introdução</li>
-	    <li>Justificativa</li>
-	    <li>Como funcionam os jogos</li>
-	    <li>Sistemas distribuídos</li>
 	    <li>Jogos sob demanda</li>
-      <li>Trabalhos relacionados</li>
+      <li>Compressão de dados</li>
+      <li>MJPEG</li>
+      <li>MPEG</li>
+      <li>Resultados</li>
+      <li>Conclusão</li>
+      <li>Referências</li>
 	  </ol>
 	</section>
 	<section>
@@ -54,152 +56,80 @@
       <h2> Introdução </h2>
 	  </section>
 	  <section>
-      <h2> Jogos sob demanda </h2>
-	    <ul>
-	      <li><i>Games on demand</i></li>
-	      <li>Jogos em nuvens</li>
-	      <li><b><i>Cloud gaming</i></b></li>
-	      <li>Computação em nuvens</li>
-	      <li><i>Cloud computing</i></li>
-	    </ul>
+      <h2> Jogos sob demanda </h2>	    
 	  </section>
-	  <section>
-	    <h4>Definição</h4>
-	    
-	    Jogos sob demanda é um sistema onde o jogo é executado/processado por partes.
-
-	  <p><small>O’BRIEN, R.<b> Gaming on demand system and methodology.</b> Google Patents, 2005.</small></p>
-	  </section>
-	  <section>
-	    <h2>Objetivo</h2>	  
-	    A criação de um sistema de jogos sob demanda, onde o jogo possa ser processado em um servidor enquanto jogado em um cliente.
-	  </section>
-	</section>
-  <section>
-	  <section>
-	    <h2> Justificativas </h2>	    
-	  </section>
-	  <section>
-	    <h4> Internet </h4>
-	    <img src="./images/Internet.png" height="500">
-	    <figcaption> <small> Retirado de http://churchm.ag/numbers-internet-use/ </small> </figcaption>
-	  </section>	 
-	  <section>
-	    <h4> Serviços - Netflix </h4>
-	      <img src="./images/Netflix.jpg" height="500" width="800">
-	      <figcaption> <small> Retirado de http://www.statista.com/statistics/250934/quarterly-number-of-netflix-streaming-subscribers-worldwide/ </small> </figcaption>	   
-	  </section>
-	  <section>
-	    <h4> Serviços - Spotify </h4>
-	      <img src="./images/Spotify.png" height="550" width="1000">
-	      <figcaption> <small> Retirado de http://www.statista.com/statistics/244995/number-of-paying-spotify-subscribers/ </small> </figcaption>	   
-	  </section>
-	  <section>
-	    <h4> Serviços - Dropbox </h4>
-	      <img src="./images/Dropbox.png" height="550" width="800">
-	      <figcaption> <small> Retirado de http://amigobulls.com/articles/steep-valuation-might-complicate-dropbox-ipo/ </small> </figcaption>
-	  </section>
-	   <section>
-	    <h2><i>Hardware</i><h2>
-	  </section>
-	  <section>
-	    <h4> Mercado </h4>
-	      <img src="./images/img1.png"> <img src="./images/img2.png">
-	      <figcaption> <small> Retirado de http://www.cnet.com/news/sony-buys-onlive-streaming-game-service-which-will-shut-down-later-this-month/ </small> </figcaption>
-	  </section>
-	</section>
-	<section>
-	  <section>
-	    <h3>Como funcionam os jogos</h3>
-	    <ul>
-	      <li><i>Input/Output</i></li>
-	      <li><i>Buffer</i></li>
-	      <li><i>Frames</i></li>
-	      <li><i>GPU (Graphics Processing Unit)</i></li>
-	    </ul>
-	  </section>	 
 	  <section>
 	    <h5><i>Game Loop</i></h5>
 	    <img src="./images/gameloop.png" height="500" width="400">
 	    <figcaption> <small> Retirado de GitGist: qrush </small> </figcaption>
 	  </section>
-	  <section>
-	    <h5>Forma simplificada</h5>
-	    <img src="./images/game_processing.jpg" height="400" width="800">
-	    <figcaption> <small> Retirado de Serious Game Classification (2008) </small> </figcaption>
-	  </section>
-	  <section>
-	    <h4>FPS (<i>Frames Per Second</i>)</h4>
-	    <img src="./images/fps.jpg" height="300" width="800">
-	    <figcaption> <small> Retirado de Newton (2013) </small> </figcaption>
-	  </section>
-	</section>
-	<section>
-	  <section>
-	    <h3>Sistemas distribuídos</h3>
-	  
-	    Sistema distribuído é uma coleção de computadores independentes trabalhando de forma que pareçam ser um único sistema.
-	    <p><small>TANENBAUM, A. S. <b> Distributed systems.</b> 2007.</small></p>
-	  </section>
-	  <section>
-	    <h5>Cliente/Servidor</h5>
-	    <img src="./images/client-server.jpg" height="400" width="800">
-	    <figcaption> <small>  Retirado de Soriano (2015) </small> </figcaption>
-	  </section>
-	</section>
-	<section>
-	  <section>
-	    <h3>Jogos sob demanda</h3>	    
-	  </section>
-	  <section>
-	    <h5>Sistemas distribuídos aplicado</h5>	    
-	    <img src="./images/client-server2.jpg" height="550" width="1000">
-	    <figcaption> <small>  Adaptado de Serious Game Classification (2008)</small> </figcaption>
-	  </section>	  
-	  <section>
-	    <h5>Uma visão mais detalhada</h5>
-	    <img src="./images/CloudDesign.png" height="550" width="1000">
-	    <figcaption> <small>  Retirado de Cloud gaming: architecture and performance (2013)</small> </figcaption>
-	  </section>
+    <section>
+      <h5>Divisão do jogo</h5>
+      <img src="./images/client-server2.jpg" height="550" width="1000">
+      <figcaption> <small>  Adaptado de A gameplay definition through videogame classification (2008)</small> </figcaption>
+    </section>
+    <section>
+      <h5>Funcionamento mais detalhado</h5>
+      <img src="./images/CloudDesign.png" height="550" width="1000">
+      <figcaption> <small> Retirado de Cloud gaming: architecture and performance (2013) </small> </figcaption>
+    </section>
 	</section>
   <section>
-	  <section>
-	    <h2> Trabalhos relacionados </h2>	   
-	  </section>	  
-	  <section>
-	    <h3> Nvidia - Shield/GRID </h3>	   
-	    <img src="./images/Nvidia.png">
-	    <figcaption> <small> Retirado de Nvidia Shield </small> </figcaption>
-	  </section>
-	  <section>
-	    <h3> Sony - Playstation Now </h3>
-	    <img src="./images/ps.png" height="350" width="600">
-	    <figcaption> <small> Retirado de Playstation Now </small> </figcaption>
-	  </section>
-	  <section>
-	    <h2> Gaminganywhere </h2>
-	  </section>
-	</section>
+    <section>
+      <h2>Compressão de dados</h2>
+	    <ul>
+	      <li><i>Lossy</i></li>
+	      <li><i>Lossyless</i> ou <i>Lossy-free</i></li>
+	    </ul>
+    </section>
+    <section>
+      <h2>MJPEG</h2>
+	    <ul>
+	      <li>JPEG</li>
+	      <li>Imagens em sequencia</li>
+	    </ul>
+    </section>
+    <section>
+      <h2>MPEG</h2>
+	    <ul>
+	      <li>Comparação entre <i>frames</i></li>
+	    </ul>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2> Resultados </h2>
+    </section>
+    <section>
+      <h5>Qualidade MJPEG</h5>
+      <img src="./images/ducksComp.png" height="550" width="1000">
+      <figcaption> <small> Adaptado de http://caputconsultoria.com.br/artigos81-a-sindrome-do-pato/ </small> </figcaption>
+    </section>
+    <section>
+      <h5>Qualidade MPEG</h5>
+      <img src="./images/videoComp.png" height="550" width="1600">
+      <figcaption> <small> Adaptado de https://www.youtube.com/watch?v=Q0oIoR9mLwc </small> </figcaption>
+    </section>
+    <section>
+      <h5>Compressão</h5>
+      <img src="./images/grafico.png" height="550" width="1000">
+      <figcaption> <small> Autoria própria </small> </figcaption>
+    </section>
+  </section>
+  <section>
+    <h2>Conclusão</h2>
+  </section>
 	<section>
 	  <section>
 	    <h3> Referências </h3>
-	    <p><small>HUANG, C.-Y. et al. Gaminganywhere: An open cloud gaming system. ACM Multimedia Systems,2013.</small></p>
-	    <p><small>Shea, Ryan, et al. "Cloud gaming: architecture and performance." Network, IEEE 27.4 (2013).</small></p>
-	    <p><small>http://serious.gameclassification.com/EN/about/article.html/</small></p>	 
-	    <p><small>https://www.playstation.com/en-us/explore/psnow/devices/</small></p>
-	    <p><small>http://tutorials.jenkov.com/html4/the-web.html</small></p>
-	    <p><small>http://shield.nvidia.com/</small></p>
-	    <p><small>http://computer.howstuffworks.com/internet/basics/streaming-video-and-audio4.htm</small></p>
-	    <p><small>http://serious.gameclassification.com/EN/about/article.html</small></p>
-	  </section>
-	  <section>
-	    <h3> Referências </h3>
-	    <p><small>O’BRIEN, R. Gaming on demand system and methodology. [S.l.]: Google Patents, 2005. US Patent App. 11/145,845.</small></p>
-	    <p><small>TANENBAUM, A. S.; STEEN, M. V. Distributed systems. [S.l.]: Prentice-Hall, 2007.</small></p>
-	    <p><small>https://gist.github.com/qrush</small></p>
-	    <p><small>http://renansoriano.com.br/blog/conhecam-o-popcorn-time-e-porque-o-netflix-teme-sua-popularizacao/.</small></p>
-	    <p><small>http://aframe.com/blog/2013/07/a-beginners-guide-to-frame-rates.</small></p>
-	    <p><small>http://www.reelseo.com/html-5-tutorial-video-fallback/</small></p>	   
+	    <p><small>Djaouti, D., Alvarez, J., Jessel, J.-P., Methel, G., and Molinier, P. (2008). A gameplay
+definition through videogame classification. International Journal of Computer Games
+Technology, 2008:4.</small></p>	 
+      <p><small>HUANG, C.-Y. et al. Gaminganywhere: An open cloud gaming system. ACM Multimedia Systems,2013.</small></p>
+      <p><small>Shea, Ryan, et al. "Cloud gaming: architecture and performance." Network, IEEE 27.4 (2013).</small></p>
+      <p><small>https://www.youtube.com/watch?v=Q0oIoR9mLwc</small></p>
+      <p><small>http://caputconsultoria.com.br/artigos81-a-sindrome-do-pato/</small></p>
+      
 	  </section>
 	</section>
       </div>
