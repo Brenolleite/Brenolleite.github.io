@@ -13,3 +13,11 @@ i{
 .active-row{
     background: #DCEDC8;
 }
+
+.active-row-purple{
+    background: #CE93D8;
+}
+
+.ngdialog-content {
+    width: 90% !important;
+}

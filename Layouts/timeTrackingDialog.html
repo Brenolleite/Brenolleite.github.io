@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h3> Trasferir para: (Tempo disponível: {{displayTime(timers[transferFrom].time)}}) </h3>
+</div>
+
+<div class="ngdialog-content">
+  <table class="table">
+    <thead>
+      <th> Tempo </th>
+      <th> Descrição </th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="timer in timers"
+          ng-if="transferFrom != $index"
+          class="pointer"
+          ng-click="selectToTransfer($index)"
+          ng-class="defineClass('trDialog', $index)">
+        <td>
+          {{displayTime(timer.time)}}
+        </td>
+        <td>
+          {{timer.description}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-footer">
+  <div class=col-sm-1>
+    <input type="text"
+           class="form-control pull-right"
+           ui-mask="99:99"
+           ng-model="transferTime" />
+  </div>
+  <button type="button"
+          class="btn btn-success pull-right"
+          ng-click="transfer(transferTime )">
+          Transferir
+  </button>
+</div>
