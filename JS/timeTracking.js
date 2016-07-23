@@ -1,7 +1,7 @@
 var app = angular.module('timeTracking', ['ui.mask', 'ngDialog']);
 
 app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 'ngDialog',
-  function($scope, $interval, $window, $timeout, $cookies, ngDialog) {
+  function($scope, $interval, $window, $timeout, ngDialog) {
   var timer, selectedTimer = -1, editing = false;
 
   $scope.timers = [];
