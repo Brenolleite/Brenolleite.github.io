@@ -1,6 +1,6 @@
-var app = angular.module('timeTracking', ['ngCookies', 'ui.mask', 'ngDialog']);
+var app = angular.module('timeTracking', ['ui.mask', 'ngDialog']);
 
-app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', '$cookies', 'ngDialog',
+app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 'ngDialog',
   function($scope, $interval, $window, $timeout, $cookies, ngDialog) {
   var timer, selectedTimer = -1, editing = false;
 
@@ -189,7 +189,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
   }
 
   $scope.clearList = function() {
-    showSwal('Deseja limpar toda a lista? Não será possível reverter essa operação.', 'confirmation', function(){
+    showSwal('Deseja limpar toda a lista?', 'confirmation', function(){
 					 $scope.pause();
 					 selectedTimer -= 1;
 					 $scope.timers = [];
@@ -238,26 +238,24 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 		}
   }
 
-  $window.onbeforeunload = function() {
-    $cookies.remove('Timer');
+  $window.onunload = function(){
+    if($scope.timers.length > 0){
+      localStorage.setItem('Timer', JSON.stringify($scope.timers, function(key, value){
+  			if(key === "$$hashKey")
+  				return undefined;
 
-		if($scope.timers.length > 0)
-			backUp();
+  			return value;
+  		}));
+    }
+    else
+      localStorage.removeItem('Timer');
 
     return null;
   }
 
-  var backUp = function(){
-    $cookies.put('Timer', JSON.stringify($scope.timers, function(key, value){
-			if(key === "$$hashKey")
-				return undefined;
-
-			return value;
-		}));
-  }
-
-  cookieTimer = $cookies.get('Timer');
-  if(cookieTimer != undefined){
-		$scope.timers = JSON.parse(cookieTimer);
+  backedTimer = localStorage.getItem('Timer');
+  if(backedTimer != undefined){
+    localStorage.removeItem('Timer');
+		$scope.timers = JSON.parse(backedTimer);
   }
 }]);
