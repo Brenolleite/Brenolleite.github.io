@@ -52,8 +52,9 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
   $scope.newTimer = function(){
 		$scope.timers.push({time: 0,
 												description: '',
-												editDesc: false,
-                        editedTime: undefined});
+												editDesc   : false,
+                        editTimer  : false,
+                        editedTime : undefined});
 		selectedTimer = $scope.timers.length - 1;
 		if(timer == undefined)
 			$scope.start();
@@ -79,6 +80,50 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
       if(element)
 				element.focus();
 		}, 10);
+  }
+
+  $scope.editTimer = function(index){
+    $scope.timers[index].editedTime = $scope.displayTime($scope.timers[index].time);
+    editing = true;
+		$scope.timers[index].editTimer = true;
+		$timeout(function(){
+			var element = document.getElementById('timer' + index);
+      if(element)
+				element.focus();
+		}, 10);
+  }
+
+  $scope.saveTimer = function(index){
+     var editing = false,
+         error   = true,
+         msg,
+         time;
+
+     $scope.timers[index].editTimer = false;
+
+     if($scope.timers[index].editedTime == undefined
+        || $scope.timers[index].editedTime == '000000'
+        || $scope.timers[index].editedTime.length != 6)
+       msg   = "Tempo incorreto!";
+     else{
+       time = $scope.timers[index].editedTime.match(/\d{1,2}/g);
+
+       if(parseInt(time[1]) >= 60 || parseInt(time[2]) >= 60)
+         msg   = "Tempo incorreto!";
+       else
+         error = false;
+     }
+
+     if(error){
+       showSwal(msg, 'error');
+       return;
+     }
+
+     showSwal('Tem certeza que deseja alterar o contador para ' + time[0] + ':' + time[1] + ':' + time[2] +  '? ', 'confirmation', function(){
+       $scope.timers[index].time = parseInt(time[0]) * 3600 + parseInt(time[1]) * 60 + parseInt(time[2]);
+       $scope.$digest();
+
+ 	  });
   }
 
   $scope.transferTimer = function(index){
@@ -126,14 +171,17 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
      $scope.timers[$scope.transferFrom].time =  $scope.timers[$scope.transferFrom].time - (parseInt(time[0]) * 3600 + parseInt(time[1]) * 60);
      $scope.timers[$scope.transferTo].time =  $scope.timers[$scope.transferTo].time + parseInt(time[0]) * 3600 + parseInt(time[1]) * 60;;
      $scope.$digest();
+
+     ngDialog.close();
 	  });
 
-    ngDialog.close();
+
 }
 
   $scope.leaveEdition = function(index){
 		editing = false;
 		$scope.timers[index].editDesc = false;
+    $scope.timers[index].editTimer = false;
   }
 
   $scope.enterAsTab = function(event, index){

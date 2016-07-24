@@ -35,9 +35,12 @@
     	  </thead>
         <tbody>
           <tr ng-repeat="timer in timers" ng-class="defineClass('tr', $index)">
-        	  <td title="Ligar contador" class="col-sm-2 pointer" ng-click="selectTimer($index)">
+        	  <td ng-if="timer.editTimer == false" title="Ligar contador" class="col-sm-2 pointer" ng-click="selectTimer($index)">
               <i ng-class="defineClass('i', $index)" aria-hidden="true"></i>
               {{displayTime(timer.time)}}
+            </td>
+            <td ng-if="timer.editTimer == true" class="col-sm-2">
+              <input type="text" class="form-control" ui-mask="99:99:99" ng-blur="leaveEdition($index)" id="timer{{$index}}" ng-model="timer.editedTime" ng-keypress="enterAsTab($event, $index)" />
             </td>
         	  <td class="col-sm-9" ng-if="timer.editDesc == false" ng-dblclick="editDescription($index)">
               {{timer.description}}
@@ -48,7 +51,8 @@
             </td>
         	  <td class="col-sm-1">
               <i title="Editar descrição" class="fa fa-pencil" aria-hidden="true" ng-click="editDescription($index)"></i>
-              <i title="Transferir tempo" ng-if="timers.length > 1" class="fa fa-cog" aria-hidden="true" ng-click="transferTimer($index)"></i>
+              <i title="Editar contador" class="fa fa-cog" aria-hidden="true" ng-click="editTimer($index)"></i>
+              <i title="Transferir tempo" ng-if="timers.length > 1" class="fa fa-chevron-right" aria-hidden="true" ng-click="transferTimer($index)"></i>
               <i title="Excluir contador" class="fa fa-trash" aria-hidden="true" ng-click="deleteTimer($index)"></i>
             </td>
         	</tr>
