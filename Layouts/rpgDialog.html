@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h3> Editar HP ({{players[selectedHP].name}})</h3>
+</div>
+
+<div class="ngdialog-content">
+    <input type="text"
+           class="form-control"
+           ng-model="HP"
+           ui-mask="9?9?9?9?9"/>
+</div>
+
+<div class="modal-footer">
+  <button type="button"
+          class="btn btn-success pull-left"
+          ng-click="saveHP(true, HP)">
+          Adicionar
+  </button>
+  <button type="button"
+          class="btn btn-success pull-right"
+          ng-click="saveHP(false, HP)">
+          Remover
+  </button>
+</div>

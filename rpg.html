@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-default.min.css">
 <link rel="stylesheet" href="CSS/timeTracking.css">
 
-<title> Time Tracking </title>
+<title> Role Playing Game </title>
 
 </head>
 <body ng-app="rpg" ng-controller="rpgCtr" ng-keypress="keyPress($event)">
@@ -19,41 +19,70 @@
     <div class="col-sm-12">
       <table class="table">
 	       <thead>
-      	  <th> Tempo </th>
-      	  <th> Descrição </th>
-      	  <th>
-          <i title="Inserir contador"
-             class="fa fa-plus-circle fa-2x"
-             aria-hidden="true"
-             ng-click="newTimer()"></i>
-          <i ng-show="timers.length > 0"
-             title="Limpar lista"
-             class="fa fa-trash fa-2x"
-             aria-hidden="true"
-             ng-click="clearList()"></i>
+      	  <th class="col-sm-3"> Jogador </th>
+          <th class="col-sm-2"> Iniciativa </th>
+          <th class="col-sm-2"> HP </th>
+          <th class="col-sm-2"> Dado
+            <i class="fa fa-play"
+               title="Rolar dado"
+               aria-hidden="true"
+               ng-click="rollDice()"></i>
+          </th>
+          <th class="col-sm-2"> Total </th>
+      	  <th class="col-sm-1">
+            <i title="Inserir jogador"
+               class="fa fa-plus-circle fa-2x"
+               aria-hidden="true"
+               ng-click="newPlayer()"></i>
+            <i ng-show="players.length > 0"
+               title="Limpar lista de jogadores"
+               class="fa fa-trash fa-2x"
+               aria-hidden="true"
+               ng-click="clearList()"></i>
          </th>
     	  </thead>
         <tbody>
-          <tr ng-repeat="timer in timers" ng-class="defineClass('tr', $index)">
-        	  <td ng-if="timer.editTimer == false" title="Ligar contador" class="col-sm-2 pointer" ng-click="selectTimer($index)">
-              <i ng-class="defineClass('i', $index)" aria-hidden="true"></i>
-              {{displayTime(timer.time)}}
+          <tr ng-repeat="player in players">
+            <td ng-if="player.editName == true" class="col-sm-3">
+              <input type="text" class="form-control"
+                     ng-blur="leaveEdition($index)"
+                     ng-model="player.name"
+                     ng-keypress="enterAsTab($event, $index)" />
             </td>
-            <td ng-if="timer.editTimer == true" class="col-sm-2">
-              <input type="text" class="form-control" ui-mask="99:99:99" ng-blur="leaveEdition($index)" id="timer{{$index}}" ng-model="timer.editedTime" ng-keypress="enterAsTab($event, $index)" />
+            <td ng-if="player.editName != true"
+                title="Editar jogador"
+                ng-dblclick="editName($index)"
+                class="pointer"
+                class="col-sm-3">
+              {{player.name}}
             </td>
-        	  <td class="col-sm-9" ng-if="timer.editDesc == false" ng-dblclick="editDescription($index)">
-              {{timer.description}}
+            <td ng-if="player.editUtility == true" class="col-sm-1">
+              <input type="text" class="form-control"
+                     ng-blur="leaveEdition($index)"
+                     ng-model="player.utility"
+                     ui-mask="9?9?9"
+                     ng-keypress="enterAsTab($event, $index)" />
             </td>
-        	  <td class="col-sm-9" ng-if="timer.editDesc == true">
-              <input type="text" class="form-control" placeholder="Descrição" ng-blur="leaveEdition($index)"
-                     id="desc{{$index}}" ng-model="timer.description" ng-keypress="enterAsTab($event, $index)"/>
+            <td ng-if="player.editUtility != true"
+                title="Editar iniciativa"
+                class="pointer"
+                ng-dblclick="editUtility($index)"
+                class="col-sm-2">
+              {{player.utility}}
+            </td>
+            <td ng-dblclick="changeHP($index)"
+                class="col-sm-2 pointer"
+                title="Editar HP">
+              {{player.HP}}
+            </td>
+            <td class="col-sm-2">
+              {{player.dice}}
+            </td>
+            <td class="col-sm-2">
+              {{getTotal($index)}}
             </td>
         	  <td class="col-sm-1">
-              <i title="Editar descrição" class="fa fa-pencil" aria-hidden="true" ng-click="editDescription($index)"></i>
-              <i title="Editar contador" class="fa fa-cog" aria-hidden="true" ng-click="editTimer($index)"></i>
-              <i title="Transferir tempo" ng-if="timers.length > 1" class="fa fa-chevron-right" aria-hidden="true" ng-click="transferTimer($index)"></i>
-              <i title="Excluir contador" class="fa fa-trash" aria-hidden="true" ng-click="deleteTimer($index)"></i>
+              <i title="Excluir jogador" class="fa fa-trash" aria-hidden="true" ng-click="deletePlayer($index)"></i>
             </td>
         	</tr>
         <tbody>
@@ -67,6 +96,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-mask/1.8.3/mask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.6.2/js/ngDialog.min.js"></script>
-  <script src="JS/timeTracking.js"></script>
+  <script src="JS/rpg.js"></script>
 </body>
 </html>
