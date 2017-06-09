@@ -82,8 +82,8 @@
 
     <div class="pull-right languagedropdown">
         <ul class="languagepicker">
-            <li id="en_US" ng-click="changeLang('en_US')"><img src="image/usa.png"/>{{text.lang[0]}}</li>
-            <li id="pt_BR" ng-click="changeLang('pt_BR')"><img src="image/brazil.png"/>{{text.lang[1]}}</li>
+            <li id="en_US" ng-click="changeLang('en_US')"><img src="image/usa.png"/><span class="language">{{text.lang[0]}}</span></li>
+            <li id="pt_BR" ng-click="changeLang('pt_BR')"><img src="image/brazil.png"/><span  class="language">{{text.lang[1]}}</span></li>
         </ul>
     </div>
     <!-- ==========================
@@ -158,20 +158,14 @@
                             </div>
                             <span>{{text.lifeEvents[0]}}</span>
                         </div> 
-                     </a>
+                     </a>                     
                   </div><!--timeline-->
+                  <div class="timeline timeline_resume">               
+                    <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'en_US'" href="Files/en_US-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Resume</a>
+                    <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'pt_BR'" href="Files/pt_BR-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Currículo </a>
+                  </div>
               </div><!--col 3 end-->               
-            </div><!--Row about end-->
-            
-            
-            <div class="row">
-              <div class="col-md-10 text-center">                	
-              </div>
-              <div class="col-md-2">
-                <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'en_US'" href="Files/en_US-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Resume</a>
-                <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'pt_BR'" href="Files/pt_BR-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Currículo </a>
-              </div>
-            </div>
+            </div><!--Row about end-->                                    
         </div><!-- Container end-->                
     </section>
     <!-- ==========================

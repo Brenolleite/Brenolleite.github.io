@@ -61,8 +61,19 @@ body {
 }
 
 .languagedropdown {
-	position: absolute !important;
-    left: 90% !important;
+	position: absolute !important;    
+	right: 0px;
     top: 0% !important;
 	cursor: pointer !important;
+}
+
+.language{
+	display: inline;
+}
+
+
+@media (max-width:480px) {	
+	.language{
+		display: none !important;
+	}
 }

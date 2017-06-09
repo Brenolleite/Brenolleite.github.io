@@ -1012,136 +1012,6 @@ blockquote footer {
 	padding:13px 0 0 0;
 	font-size:28px;
 }
-/*------------------------------
-	PRICING2
-------------------------------*/
-
-#pricing .pricing-table {
-	background-color:#f0f0f0;
-	border-radius:5px;
-	margin-top:20px;
-	
-}
-
-#pricing .pricing-headline {
-	background-color:#2C3E50;
-	padding:20px 0 20px;
-	border-radius:5px 5px 0 0;
-	transition:all 0.3s ease-in-out;
-}
-
-#pricing .pricing-headline h3 {
-	font-size:30px;
-	margin:0 0 20px;
-	transition:all 0.3s ease-in-out;
-}
-
-#pricing .prize {
-	background-color:#fff;
-	width:80px;
-	height:80px;
-	margin:0 auto;
-	color:#2C3E50;
-	border-radius:50%;
-	font-size:25px;
-	font-weight:bold;
-	padding-top:22px;
-	transition:all 0.3s ease-in-out;
-}
-
-#pricing ul {
-	padding:20px 0;
-	margin:0;
-}
-
-#pricing ul li {
-	color:#2C3E50;
-	padding:5px 0;
-	font-size:16px;
-}
-
-#pricing ul li strong,
-#pricing ul li i  {
-	margin-right:10px;
-}
-
-#pricing .btn-wrapper {
-	background-color:#e0e0e0;
-	padding:15px 0;
-	border-radius:0 0 5px 5px;
-}
-
-#pricing .btn {
-	padding:7px 30px;
-}
-
-
-#pricing .pricing-table:hover .pricing-headline,
-#pricing .pricing-table.active .pricing-headline {
-	background-color:#ffffff;
-}
-
-#pricing .pricing-table:hover .pricing-headline h3,
-#pricing .pricing-table.active .pricing-headline h3 {
-	color:#2C3E50;
-}
-
-#pricing .pricing-table:hover .prize,
-#pricing .pricing-table.active .prize {
-	background-color:#2C3E50;
-	color:#ffffff;
-}
-
-/*------------------------------
-	testimonials
-------------------------------*/
-
-#testimonials {
-	background-color:#16A085;
-}
-
-#testimonials .media {
-	margin-top:20px;
-}
-
-#testimonials .media a.pull-left {
-	border-radius:50%;
-	margin-right:15px;
-}
-
-#testimonials .media a.pull-left img {
-	max-width:100px;
-}
-
-#testimonials .media .media-body {
-	background-color:rgba(0, 0, 0, 0.1);
-	padding:15px 20px;
-	border-radius:12px;
-}
-
-#testimonials .media .media-body h4 {
-	margin:0;
-	font-weight:bold;
-	font-size:22px;
-}
-
-#testimonials .media .media-body span {
-	margin:5px 0 15px;
-	display:block;
-	font-weight:bold;
-	font-style:italic;
-	font-size:14px;
-	color:#333;
-}
-
-#testimonials .media .media-body p {
-	margin:0;
-	padding:5px 0 0;
-	border-top:1px dashed rgba(0, 0, 0, 0.2);
-	text-align:left;
-	line-height:25px;
-	font-size: 14px;
-}
 
 /*------------------------------
 	CONTACT
@@ -1603,15 +1473,7 @@ blockquote footer {
 	
 	.pricing-table {
 		margin:0 50px;
-	}
-	
-	#testimonials .media a.pull-left img {
-		max-width:50px;
-	}
-	
-	#testimonials .media .media-body p {
-		text-align:left;
-	}
+	}	
 	
 	#contact {
 		padding:20px;
@@ -1662,6 +1524,8 @@ blockquote footer {
 	#carousel-reference {
 		position:static;
 	}
+
+
 }
 
 /*------------------------------
@@ -1687,9 +1551,7 @@ blockquote footer {
 	PHONES 548px width
 ------------------------------*/
 
-@media (max-width:548px) {
-	
-	
+@media (max-width:548px) {	
 	.timeline {
 		margin:25px 0 0 245px;
 	}
@@ -1704,11 +1566,7 @@ blockquote footer {
 	
 	.grid li {
 		width: 370px;
-	}
-	
-	.pricing-table {
-		margin:0 30px;
-	}
+	}	
 }
 
 /*------------------------------
@@ -1741,6 +1599,9 @@ blockquote footer {
 		font-size:34px;
 	}
 
+	.language{
+		display: none;
+	}
 }
 
 /*------------------------------
@@ -1788,8 +1649,12 @@ blockquote footer {
 	
 	#blog-header i {
 		font-size:28px;
-	}
+	}	
 }
+
+/*------------------------------
+	New CSS
+------------------------------*/
 
 .about a{
 	text-decoration: none;
@@ -1808,4 +1673,8 @@ blockquote footer {
 
 .timeline a:hover{
 	text-decoration: underline;	
+}
+
+.timeline_resume{
+	border-left:0px solid !important;
 }
