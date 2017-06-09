@@ -1,78 +1,332 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ==========================
+    	Meta Tags 
+    =========================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==========================
+    	Title 
+    =========================== -->
+    <title>Breno Leite</title>
+    
+    <!-- ==========================
+    	Favicons 
+    =========================== -->    
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon.png">
+    <!-- ==========================
+    	Fonts 
+    =========================== -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="CSS/style.css">
-
-<title> Breno Leite </title>
+    <!-- ==========================
+    	CSS 
+    =========================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/creative-brands.css" rel="stylesheet" type="text/css">
+    <link href="css/vertical-carousel.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <link href="css/language.css" rel="stylesheet">
+    
+    <!-- ==========================
+    	JS 
+    =========================== -->    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
 </head>
-<body>
-  <!-- Top bar => for mobile --> 
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <!-- Top bar -->
-      <div class="navbar-collapse collapse" id="navbar-main">
-	<ul id="left" class="nav navbar-nav">
-	   <li>
-	    <a href="https://br.linkedin.com/in/brenolleite">
-		  <img class="img-circle" title="LinkedIn" alt="LinkedIn" src="https://socialmediawidgets.files.wordpress.com/2014/03/07_linkedin1.png" width="30" height="30" />
-	    </a>
-	  </li>
-	  <li>
-	    <a href="https://twitter.com/brelleite">
-	      <img class="img-circle" title="Twitter" alt="Twitter" src="https://socialmediawidgets.files.wordpress.com/2014/03/01_twitter1.png" width="30" height="30" />
-	    </a>
-	  </li>
-	  <li>
-	    <a href="https://github.com/Brenolleite">
-	      <img class="img-circle" title="GitHub" alt="GitHUb" src="http://www.macupdate.com/images/icons256/39062.png" width="30" height="30" />
-	    </a>
-	  </li>
-	  <li>
-	    <a href="mailto:brenolleite@gmail.com">
-	      <img title="Email" alt="Email" src="https://socialmediawidgets.files.wordpress.com/2014/03/email.png" width="30" height="30" />
-	    </a>
-	  </li>
-	</ul>
-	<ul class="nav navbar-nav">
-          <li> <a class="click" href="Layouts/about.html"> About Me </a> </li>
-	  <li> <a class="click" href="Layouts/resume.html"> Resume </a> </li>
-	</ul>
-      </div>
-    </div>
-  </nav>
-  <center>
-  <div class="container">
-    <div class="info">
-      <ul id="first">
-	<li> <img src="Images/BrenoLeite.jpg" class="img-circle" alt="Breno Leite" width="120" height="100"> </li> 
-      </ul>
-      <ul>
-	<li>
-	  <p id="name"> Breno Leite </p>
-	</li>
-	<li>
-	  <p id="major"> Computer Science </p>
-	</li>
-      </ul>
-    </div>
-  </div>
-  </center>
-  <div id="main-wrapper">
-  </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="JS/javascript.js"></script>
+<body id="page-top" ng-app="myHomePage" ng-controller="textCtr">
+    <!-- ==========================
+    	HEADER - START 
+    =========================== -->    
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavigation"><i class="fa fa-bars"></i></button>
+                    <img src="image/Breno_Leite2.png" class="navbar-logo pull-left" alt="" />
+                    <a href="index.html" class="navbar-brand animated flipInX">Breno Leite</a>
+                </div>
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="myNavigation">
+                    <ul class="nav navbar-nav navbar-right animated flipInX">
+                        <li><a href="#about" class="scroll">{{text.navbar[0]}}</a></li>
+                        <li><a href="#interests" class="scroll">{{text.navbar[1]}}</a></li>                        
+                        <li><a href="#contact" class="scroll">{{text.navbar[2]}}</a></li>                        
+                    </ul>                    
+                </div><!-- /.navbar-collapse -->                
+            </div><!-- /.container -->
+        </nav>        
+        <div class="jumbotron">
+            <img src="image/Breno_Leite.png" class="img-responsive scrollpoint sp-effect3" alt="" />	
+            <div class="social-wrapper">                
+                <h2 class="scrollpoint sp-effect3">Breno Leite</h2>
+                <ul class="brands brands-inline hidden-xs scrollpoint sp-effect2">                    
+                    <li><a href="https://www.linkedin.com/in/brenolleite"><i class="fa fa-linkedin"></i></a></li>
+                </ul>       
+            </div>                
+        </div>        
+    </header>
 
+    <div class="pull-right languagedropdown">
+        <ul class="languagepicker">
+            <li id="en_US" ng-click="changeLang('en_US')"><img src="image/usa.png"/>{{text.lang[0]}}</li>
+            <li id="pt_BR" ng-click="changeLang('pt_BR')"><img src="image/brazil.png"/>{{text.lang[1]}}</li>
+        </ul>
+    </div>
+    <!-- ==========================
+    	HEADER - END 
+    =========================== -->
+     
+    <!-- ==========================
+    	ABOUT - START 
+    =========================== -->
+    <section id="about" class="content-first">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 hidden-xs scrollpoint sp-effect1"><!-- Profile image --> 
+                	<img src="image/Breno_Leite2.png" class="image-bordered img-responsive" alt="" />                
+                </div><!-- Profile end --> 
+                
+                <div class="col-md-7 col-sm-6 scrollpoint sp-effect1"><!-- Profile description --> 
+                	<h3>Breno Leite</h3>
+                  	<p class="about" ng-show="currentLang === 'en_US'"> 
+                          First of all I am a computer lover, and I have been studying these machines during at least 8 years. 
+                          After all this time, one thing I have learned is that it is impossible to know everything about them.
+                          The areas I am more familiar with are software development, web development, game development, machine learning 
+                          and computer vision. I love to face new challenges, and I like to solve them in the best way possible. 
+                          That is the main reason why I chose Computer Science as my Major, on this field I can develop tools which will 
+                          help people and it is full of challenges. I am currently part of the 
+                          <a href='https://recodbr.wordpress.com/'>RECOD</a> research group, in the <a href='http://www.ic.unicamp.br/'>Institute of Computing</a> at Unicamp. 
+                          My research focus is on automatic violence detection on videos through computer vision and machine learning techniques.
+                    </p>
+                    <p class="about" ng-show="currentLang === 'pt_BR'"> 
+                          Acima de muitas coisas eu sou uma pessoa apaixonada por computadores, venho estudado o funcionamento dessas máquinas 
+                          por pelo menos 8 anos. Demorou um pouco, mas aprendi que é impossível saber tudo sobre elas. Por isso as áreas que
+                          sou mais familiarizado são desenvolvimento de softwares, desenvolvimento web, desenvolvimento de jogos, aprendizagem de máquinas
+                          e visão computacional. Eu adoro enfrentar novos desafios, normalmente tento resolvê-los da melhor forma possível.
+                          Esse foi o motivo de eu ter escolhido me tornar um cientista da computação, essa área me proporciona as condições necessárias para
+                          desenvolver ferramentas que ajude pessoas e além disso é uma área cheia de desafios. Atualmente, eu faço parte do grupo de pesquisas 
+                          <a href='https://recodbr.wordpress.com/'>RECOD</a>, que fica no <a href='http://www.ic.unicamp.br/'>Instituto de Computação</a> da Unicamp. 
+                          Minha pesquisa tem como foco a detecção automática de violência através de técnicas de visão computacional e aprendizado de máquina.                                                    
+                    </p>
+               </div><!-- Profile description end--> 
+                
+              <div class="col-md-3 col-sm-4 scrollpoint sp-effect2"><!--Timeline-->
+                 
+                  <div class="timeline">
+                     <a href="http://www.unicamp.br/">
+                        <div class="event">
+                            <div class="event-info">
+                                <div class="date">2017</div>
+                            </div>
+                            <span>{{text.lifeEvents[3]}}</span>
+                        </div>
+                     </a>
+                     <a href="http://www.virtual.inf.br/">
+                      <div class="event">
+                          <div class="event-info">
+                             <div class="date">2015</div>
+                          </div>
+                      	  <span>{{text.lifeEvents[2]}}</span>
+                      </div>
+                     </a>
+                     <a href="http://www.msstate.edu/">
+                        <div class="event">
+                            <div class="event-info">
+                                <div class="date">2014</div>
+                            </div>
+                            <span>{{text.lifeEvents[1]}}</span>
+                        </div> 
+                     </a>   
+                     <a href="http://www.utfpr.edu.br/">
+                        <div class="event">
+                            <div class="event-info">
+                                <div class="date">2011</div>
+                            </div>
+                            <span>{{text.lifeEvents[0]}}</span>
+                        </div> 
+                     </a>
+                  </div><!--timeline-->
+              </div><!--col 3 end-->               
+            </div><!--Row about end-->
+            
+            
+            <div class="row">
+              <div class="col-md-10 text-center">                	
+              </div>
+              <div class="col-md-2">
+                <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'en_US'" href="Files/en_US-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Resume</a>
+                <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'pt_BR'" href="Files/pt_BR-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Currículo </a>
+              </div>
+            </div>
+        </div><!-- Container end-->                
+    </section>
+    <!-- ==========================
+    	ABOUT - END 
+    =========================== --> 
+
+    <!-- ==========================
+    	QUOTES - START
+    =========================== -->   
+    <section id="quotes" class="content-first">
+        <div class="container">
+            <div class="row scrollpoint sp-effect3">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <blockquote class="blockquote-reverse">
+                        <p><i class="fa fa-quote-left"></i> Do you remember the guy that gave up? Neither does anybody else.</p>
+                        <footer> Unknown</footer>
+                    </blockquote>
+                </div>   	
+            </div>
+        </div>
+    </section>
+    <!-- ==========================
+    	QUOTES - END 
+    =========================== -->
+    
+     <!-- ==========================
+    	SERVICER - START
+    =========================== -->   
+    <section id="interests" class="content-second">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="scrollpoint sp-effect3">{{text.interestsTitle}}</h2>
+                    <p class="scrollpoint sp-effect3"> {{text.interestsPhrase}}</p> 
+                </div>                               
+                
+                <div class="col-md-6 service scrollpoint sp-effect2">
+                  <img src="image/Machine_Learning.png" alt="">
+                  <h3>{{text.interestsTitles[0]}}</h3>
+                  <p>{{text.interestsTexts[0]}}</p>
+                </div>              
+
+                <div class="col-md-6 service scrollpoint sp-effect2">
+                  <img src="image/ico1.png" alt="">
+                  <h3>{{text.interestsTitles[1]}}</h3>
+                  <p>{{text.interestsTexts[1]}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========================
+    	SERVICES - END 
+    =========================== -->
+    
+    <!-- ==========================
+    	QUOTES - START
+    =========================== -->   
+    <section id="quotes" class="content-first">
+        <div class="container">
+            <div class="row scrollpoint sp-effect3">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <blockquote class="blockquote-reverse">
+                        <p><i class="fa fa-quote-left"></i> A person who never made a mistake never tried anything new. </p>
+                        <footer> Albert Einstein</footer>
+                    </blockquote>
+                </div>   	
+            </div>
+        </div>
+    </section>
+    <!-- ==========================
+    	QUOTES - END 
+    =========================== -->        
+    
+    <!-- ==========================
+    	CONTACT - START
+    =========================== -->   
+    <section id="contact" class="content-first">
+        <div class="container">
+        	<h2 class="scrollpoint sp-effect3">{{text.contact[0]}}</h2>
+            <div class="contact-alert">
+            </div>
+            <div class="row">            
+                <div class="col-sm-12">
+                	<img src="image/macbook.png" class="img-responsive hidden-xs" alt="">                    
+                    <div class="macbook-inner black">
+                    	<div class="row scrollpoint sp-effect4">
+                        	<div class="col-sm-8">
+                            	<h3 class="hidden-xs">{{text.contact[1]}}</h3>
+                                
+                                <form role="form" id="contactForm" 
+                                      action="https://formspree.io/brenolleite@gmail.com"
+                                      method="POST">
+
+                                    <div class="form-group control-group">
+                                        <div class="controls">
+                                            <p class="help-block"></p>
+                                            <input type="text" class="form-control" placeholder="{{text.contact[2]}}" id="subject" name="_subject">
+                                        </div>
+                                    </div>
+                                                                      
+                                    
+                                    <div class="form-group control-group">
+                                        <div class="controls">
+                                            <p class="help-block"></p>
+                                            <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group control-group">
+                                        <div class="controls">
+                                            <p class="help-block"></p>
+                                            <textarea class="form-control" placeholder="{{text.contact[3]}}" id="message" name="message"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button type="submit" ng-click="checkForm($event)" class="btn btn-primary">{{text.contact[4]}}</button>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                            <div class="col-sm-4">
+                            
+                            <img src="image/Breno_Leite.png" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />
+                            	<div class="contact-info">
+                                	<p>Breno Leite</p>                                   
+                                    <p>Campinas, São Paulo</p>
+                                </div>
+                            </div>
+                    	</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========================
+    	CONTACT - END 
+    =========================== -->
+    
+    <!-- ==========================
+    	JS 
+    =========================== -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/creative-brands.js"></script>
+    <script src="js/jquery.easy-pie-chart.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/custom.js"></script> 
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>        
+    <script src="https://code.angularjs.org/1.5.8/angular-cookies.min.js"></script>    
+    <script src="js/texts.js"></script>
+    
 </body>
 </html>
