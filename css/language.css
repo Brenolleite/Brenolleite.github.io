@@ -62,7 +62,7 @@ body {
 
 .languagedropdown {
 	position: absolute !important;    
-	right: 0px;
+	right: 0px !important;
     top: 0% !important;
 	cursor: pointer !important;
 }
@@ -72,7 +72,7 @@ body {
 }
 
 
-@media (max-width:480px) {	
+@media (max-width:480px) {
 	.language{
 		display: none !important;
 	}

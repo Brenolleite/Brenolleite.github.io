@@ -132,7 +132,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     $scope.transferTime = undefined;
 
     ngDialog.open({
-                    template:  'timeTrackingDialog.html',
+                    template:  'timeTracking/timeTrackingDialog.html',
                     className: 'ngdialog-theme-default',
                     scope:     $scope
                   });
