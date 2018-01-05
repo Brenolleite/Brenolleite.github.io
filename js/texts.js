@@ -2,8 +2,8 @@ var app = angular.module('myHomePage', ['ngCookies']);
 
 var pt = {
     lang: ['Inglês', 'Português'],
-    navbar: ['Sobre Mim', 'Interesses', 'Contato'],    
-    lifeEvents: ['Ciência da Computação - UTFPR', 'Ciência da Computação - Mississippi State University', 'Desenvolvedor Web - Virtual Softwares', 'Mestado em Ciência da Computação - Unicamp'],
+    navbar: ['Sobre Mim', 'Interesses', 'Contato'],
+    lifeEvents: ['Ciência da Computação - UTFPR', 'Ciência da Computação - Mississippi State University', 'Desenvolvedor Web - Virtual Softwares', 'Mestado em Ciência da Computação - Unicamp', 'Ciêntista de Dados - Itaú Unibanco'],
     interestsTitle: 'Interesses',
     interestsPhrase: 'Sou um cientista da computação com anseios em resolver problemas em diversas áreas',
     interestsTitles: ['Aprendizado de máquina', 'Desenvolvimento de Software'],
@@ -16,8 +16,8 @@ var pt = {
 
 var en = {
     lang: ['English', 'Portuguese'],
-    navbar: ['About me', 'Interests', 'Contact'],    
-    lifeEvents: ['Computer Science - UTFPR', 'Computer Science - Mississippi State University', 'Web Developer - Virtual Softwares', 'M.Sc. in Computer Science - Unicamp'],
+    navbar: ['About me', 'Interests', 'Contact'],
+    lifeEvents: ['Computer Science - UTFPR', 'Computer Science - Mississippi State University', 'Web Developer - Virtual Softwares', 'M.Sc. in Computer Science - Unicamp', 'Data Scientist - Itaú Unibanco'],
     interestsTitle: 'Interests',
     interestsPhrase: 'I am a computer scientist, who loves to solve problems on diverse areas',
     interestsTitles: ['Machine Learning', 'Software Development'],
@@ -28,7 +28,7 @@ var en = {
     contact: ['Contact Me', 'Leave a message', 'Subject', 'Message', 'Send']
 }
 
-function language(lang, scope){    
+function language(lang, scope){
     if(lang === 'pt_BR'){
         scope.text = pt;
         scope.currentLang = 'pt_BR';
@@ -42,22 +42,22 @@ function language(lang, scope){
 }
 
 app.controller('textCtr', ['$scope', '$cookies', function($scope, $cookies) {
-    $scope.changeLang = function(lang){        
+    $scope.changeLang = function(lang){
         language(lang, $scope);
         $cookies.put('lang', lang);
     };
 
     angular.element(document).ready(function () {
-        var lang = $cookies.get('lang');        
+        var lang = $cookies.get('lang');
 
         if(!lang)
             lang = window.navigator.userLanguage || window.navigator.language;
 
-        if(lang.indexOf('pt') > -1)        
-            language('pt_BR', $scope); 
+        if(lang.indexOf('pt') > -1)
+            language('pt_BR', $scope);
         else
             language('en_US', $scope);
 
         $scope.$digest();
-    });          
+    });
 }]);

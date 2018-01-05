@@ -1,6 +1,4 @@
-var recodApp = angular.module('recod', ['ui.mask', 'ngDialog']);
-
-recodApp.controller('recodCtr',['$scope', '$interval', '$window', '$timeout', 'ngDialog',
-  function($scope, $interval, $window, $timeout, ngDialog) {
-
+recodApp.controller('recodCtr',['$scope', 'graphs',
+  function($scope, graphs) {
+    graphs.updateGraph('bar', ['teste', 'teste2'], [{label: 'ALOU', data: [10, 5]}])
 }]);

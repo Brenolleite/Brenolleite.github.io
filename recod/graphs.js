@@ -1,23 +1,28 @@
-recodApp.factory('graphs', function graph(ptype, plabels, pdata) {
+var recodApp = angular.module('recod', ['ui.mask', 'ngDialog']);
+
+recodApp.factory('graphs', function graphs() {
+    var factory = {};
+
     var ctx = document.getElementById("chart");
 
-    var myChart = new Chart(ctx, {
-        type: ptype,
-        data: {
-            labels: plabels,
-            datasets: [{
-                label: '# of Votes',
-                data: pdata,
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
+    factory.updateGraph = function(ptype, plabels, pdatasets){
+        var myChart = new Chart(ctx, {
+            type: ptype,
+            data: {
+                labels: plabels,
+                datasets: pdatasets
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
             }
-        }
-    });
+        });
+    }
+
+    return factory;
 });
