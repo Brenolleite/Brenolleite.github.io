@@ -19,7 +19,9 @@ recodApp.factory('graphs', function graphs() {
                             beginAtZero:true
                         }
                     }]
-                }
+                },
+                responsive: true,
+                responsiveAnimationDuration: 1500
             }
         });
     }
