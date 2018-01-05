@@ -35,6 +35,12 @@
     margin-left: 50px;
 }
 
+.logo{
+    position: absolute;
+    top: 0;
+    right: 70px;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;

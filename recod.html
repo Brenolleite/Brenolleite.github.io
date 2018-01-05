@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.6.2/css/ngDialog.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog-theme-default.min.css">
 <link rel="stylesheet" href="recod/sidebar.css">
+<link rel="stylesheet" href="recod/recod.css">
 
 <title> RECOD </title>
 
@@ -18,13 +19,21 @@
 </head>
 <body ng-app="recod" ng-controller="recodCtr">
   <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#" ng-click="selectGraph('usersUsage')">Users usage</a>
+      <img class="logo" src="image/recod.png"
+           height="65" width="160"
+           alt="logo" />
+      <a href="javascript:void(0)"
+         class="closebtn"
+         onclick="closeNav()">&times;</a>
+      <a href="#" ng-click="selectGraph('usersUsage')" onclick="closeNav()">Users</a>
+      <a href="#" ng-click="selectGraph('dlsUsage')" onclick="closeNav()">DLs</a>
   </div>
 
   <div id="main" class="container-fluid">
-    <i class="fa fa-caret-square-o-right" aria-hidden="true" onclick="openNav()"></i>
-    <canvas id="chart"></canvas>
+    <i class="fa fa-caret-square-o-right fa-4x menu"
+       aria-hidden="true"
+       onclick="openNav()"></i>
+    <canvas id="chart" onclick="closeNav()" height="100%"></canvas>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

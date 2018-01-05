@@ -38,10 +38,16 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs',
       });
     }
 
+    // Graphs for dls usage control
+    function dls_usage(){
+      graphs.updateGraph('horizontalBar', labels, datasets);
+    }
+
     $scope.selectGraph = function(graph){
-      if(graph == 'usersUsage'){
+      if(graph == 'usersUsage')
         users_usage();
-      }
+      else if(graph == 'dlsUsage')
+        dls_usage();
     }
 
     users_usage()
