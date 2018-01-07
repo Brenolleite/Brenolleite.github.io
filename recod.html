@@ -30,9 +30,13 @@
   </div>
 
   <div id="main" class="container-fluid">
-    <i class="fa fa-caret-square-o-right fa-4x menu"
+    <i class="fa fa-caret-square-o-right fa-3x menu"
        aria-hidden="true"
        onclick="openNav()"></i>
+    <i class="fa fa-exclamation-triangle fa-3x sanity"
+       aria-hidden="true"
+       title="Server not running"
+       ng-show="halt"></i>
     <canvas id="chart" onclick="closeNav()" height="100%"></canvas>
   </div>
 
