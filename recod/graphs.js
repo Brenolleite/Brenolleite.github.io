@@ -4,9 +4,13 @@ recodApp.factory('graphs', function graphs() {
     var factory = {};
 
     var ctx = document.getElementById("chart");
+    var myChart;
 
     factory.updateGraph = function(ptype, plabels, pdatasets){
-        var myChart = new Chart(ctx, {
+        if(myChart)
+            myChart.destroy();
+
+        myChart = new Chart(ctx, {
             type: ptype,
             data: {
                 labels: plabels,

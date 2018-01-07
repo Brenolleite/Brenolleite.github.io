@@ -22,23 +22,23 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
 
         response.forEach(function(item){
           labels.push(item.username);
-          idle.push(item.idle_time/60);
-          used.push(item.used_time/60);
+          idle.push((item.idle_time/60).toFixed(2));
+          used.push((item.used_time/60).toFixed(2));
         });
 
         datasets = [
           {
             label: 'Used Time (h)',
             data: used,
-            backgroundColor: 'rgba(0, 230, 0, 0.7)',
-            borderColor: 'rgba(0, 128, 0, 0.7)',
+            backgroundColor: 'rgba(0, 230, 0, 0.5)',
+            borderColor: 'rgba(0, 128, 0, 0.5)',
             borderWidth: 2
           },
           {
             label: 'Idle Time (h)',
             data: idle,
-            backgroundColor: 'rgba(255, 0, 0, 0.7)',
-            borderColor: 'rgba(153, 0, 0, 0.7)',
+            backgroundColor: 'rgba(255, 0, 0, 0.5)',
+            borderColor: 'rgba(153, 0, 0, 0.5)',
             borderWidth: 2
           }
         ]
@@ -69,29 +69,29 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
           {
             label: 'Used Time - Reserved (h)',
             data: used_res,
-            backgroundColor: 'rgba(0, 230, 0, 0.7)',
-            borderColor: 'rgba(0, 128, 0, 0.7)',
+            backgroundColor: 'rgba(0, 230, 0, 0.5)',
+            borderColor: 'rgba(0, 128, 0, 0.5)',
             borderWidth: 2
           },
           {
             label: 'Used Time - Not Reserved (h)',
             data: used_nres,
-            backgroundColor: 'rgba(255, 255, 0, 0.7)',
-            borderColor: 'rgba(179, 179, 0, 0.7)',
+            backgroundColor: 'rgba(255, 255, 0, 0.5)',
+            borderColor: 'rgba(179, 179, 0, 0.5)',
             borderWidth: 2
           },
           {
             label: 'Idle Time - Reserved (h)',
             data: idle_res,
-            backgroundColor: 'rgba(255, 0, 0, 0.7)',
-            borderColor: 'rgba(153, 0, 0, 0.7)',
+            backgroundColor: 'rgba(255, 0, 0, 0.5)',
+            borderColor: 'rgba(153, 0, 0, 0.5)',
             borderWidth: 2
           },
           {
             label: 'Idle Time - Not Reserved (h)',
             data: idle_nres,
-            backgroundColor: 'rgba(255, 153, 51, 0.7)',
-            borderColor: 'rgba(204, 102, 0, 0.7)',
+            backgroundColor: 'rgba(255, 153, 51, 0.5)',
+            borderColor: 'rgba(204, 102, 0, 0.5)',
             borderWidth: 2
           }
         ]
