@@ -1,7 +1,7 @@
 recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
   function($scope, $http, graphs, $interval) {
     // server config
-    server = 'localhost:8080';
+    server = 'serverdojesus.duckdns.org:6664';
 
     $scope.halt = false;
 
@@ -111,5 +111,5 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
     dls_usage()
 
     // Create sanity check for server icon warning 900000
-    $interval(sanityCheck, 1000)
+    $interval(sanityCheck, 900000)
 }]);
