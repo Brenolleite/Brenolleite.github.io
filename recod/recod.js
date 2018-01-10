@@ -14,7 +14,7 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
 
     // Bars graph for users usage
     function users_usage(){
-      $http.get('http://' + server + '/api/usersUsage?date_filter=2018-01-01')
+      $http.get('http://' + server + '/api/usersUsage')
       .success(function(response){
         labels = []
         idle = []
@@ -49,7 +49,7 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
 
     // Graphs for dls usage control
     function dls_usage(){
-      $http.get('http://' + server + '/api/dlsUsage?date_filter=2018-01-01')
+      $http.get('http://' + server + '/api/dlsUsage')
       .success(function(response){
         labels = []
         idle_res = []
