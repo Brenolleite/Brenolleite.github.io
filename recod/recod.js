@@ -149,6 +149,16 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
     // Create sanity check for server icon warning 900000
     $interval(sanityCheck, 900000);
 
+    // Fill dates for 1 month in filters
+    var d = new Date()
+    $scope.date_filter2 =  d.getDate().toString() + '/' +
+                           (d.getMonth() + 1).toString() + '/' +
+                           d.getFullYear().toString();
+    d.setMonth(d.getMonth() - 1);
+    $scope.date_filter1 =  d.getDate().toString() + '/' +
+                          (d.getMonth() + 1).toString() + '/' +
+                           d.getFullYear().toString();
+
     // Active watches on filters
     $scope.$watch('date_filter1', applyFilters);
     $scope.$watch('date_filter2', applyFilters);

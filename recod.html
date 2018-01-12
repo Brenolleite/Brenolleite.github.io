@@ -39,18 +39,20 @@
        title="Server not running"
        ng-show="halt">
     </i>
-    <div class="row filters" ng-show="false">
-        Filters:
-        <input data-provide="datepicker"
-               placeholder="Initial Date"
-               ng-model="date_filter1"
-               class="datapicker"
-               data-date-format="dd/mm/yyyy"/>
-        <input data-provide="datepicker"
-               placeholder="Final Date"
-               ng-model="date_filter2"
-               class="datapicker"
-               data-date-format="dd/mm/yyyy"/>
+    <div class="filters">
+      <div class="row">
+          <b>Filters:</b>
+          <input data-provide="datepicker"
+                placeholder="Initial Date"
+                ng-model="date_filter1"
+                class="datapicker"
+                data-date-format="dd/mm/yyyy"/>
+          <input data-provide="datepicker"
+                placeholder="Final Date"
+                ng-model="date_filter2"
+                class="datapicker"
+                data-date-format="dd/mm/yyyy"/>
+      </div>
     </div>
     <div class="row">
       <canvas id="chart" onclick="closeNav()" height="100%"></canvas>
