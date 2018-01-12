@@ -7,15 +7,19 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
 
     // Roughly verify date
     function isDate(date){
-      var re = new RegExp('[0-9]{2}/[0-2][0-9]/[0-9]{4}');
+      var re = new RegExp('[0-9]+/[0-2][0-9]?/[0-9]{4}');
       return re.test(date);
+    }
+
+    function transform(date){
+      return date.replace(/\//g,'-').split('-').reverse().join('-');
     }
 
     function applyFilters(){
       // Verify filterss
       if(isDate($scope.date_filter1) && isDate($scope.date_filter2)){
-        params = '?date_filter1=' + $scope.date_filter1 +
-                 '&date_filter2=' + $scope.date_filter2;
+        params = '?date_filter1=' + transform($scope.date_filter1) +
+                 '&date_filter2=' + transform($scope.date_filter2);
 
         // Call last request with new filters
         if(request == 'usersUsage')
@@ -77,12 +81,12 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
     function dls_usage(params){
       // Blank string intead undefined on params
       if(params == undefined)
-      params = ''
+        params = ''
 
       // Store last request for filters
       request = 'dlsUsage'
 
-      $http.get('http://' + server + '/api/dlsUsage')
+      $http.get('http://' + server + '/api/dlsUsage' + params)
       .success(function(response){
         labels = []
         idle_res = []
@@ -134,10 +138,16 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
     }
 
     $scope.selectGraph = function(graph){
+      if(isDate($scope.date_filter1) && isDate($scope.date_filter2))
+        params = '?date_filter1=' + transform($scope.date_filter1) +
+                 '&date_filter2=' + transform($scope.date_filter2);
+      else
+        params = undefined;
+
       if(graph == 'usersUsage')
-        users_usage();
+        users_usage(params);
       else if(graph == 'dlsUsage')
-        dls_usage();
+        dls_usage(params);
     }
 
     // Execute first sanity check
