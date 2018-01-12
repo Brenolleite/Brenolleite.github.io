@@ -7,7 +7,6 @@ recodApp.controller('recodCtr',['$scope', '$http', 'graphs', '$interval',
 
     // Roughly verify date
     function isDate(date){
-      console.log(date);
       var re = new RegExp('[0-9]{2}/[0-2][0-9]/[0-9]{4}');
       return re.test(date);
     }
