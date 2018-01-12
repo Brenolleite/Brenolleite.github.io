@@ -11,3 +11,8 @@
     top: 0px;
     cursor: pointer;
 }
+
+.filters{
+    float: none;
+    margin: 0;
+}
