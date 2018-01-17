@@ -16,3 +16,7 @@
     width: 50%;
     margin: 0 auto;
 }
+
+.chartjs-render-monitor {
+  min-width: 1024px;
+}
