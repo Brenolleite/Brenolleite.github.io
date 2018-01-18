@@ -17,6 +17,7 @@
     margin: 0 auto;
 }
 
-.chartjs-render-monitor {
-  min-width: 1024px;
+#chart-container {
+  position: relative;
+  height: 50vh;
 }

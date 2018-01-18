@@ -25,7 +25,8 @@ recodApp.factory('graphs', function graphs() {
                     }]
                 },
                 responsive: true,
-                responsiveAnimationDuration: 1500
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 0
             }
         });
     }
