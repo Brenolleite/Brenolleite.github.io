@@ -247,7 +247,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 
   var ticking = function(){
     var date = new Date();
-    if ((date.getHours() === 18 && date.getMinutes() === 0) || (date.getHours() === 12 && date.getMinutes() === 0)) {
+		/*if ((date.getHours() === 18 && date.getMinutes() === 0) || (date.getHours() === 12 && date.getMinutes() === 0)) {
       $scope.pause();
       swal({
 			     title: "Horário de descanso!",
@@ -256,7 +256,7 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
           });
 
       return;
-    }
+    }*/
 
 		$scope.timers[selectedTimer].time += 1;
   }
