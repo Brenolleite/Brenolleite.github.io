@@ -174,8 +174,6 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
 
      ngDialog.close();
 	  });
-
-
 }
 
   $scope.leaveEdition = function(index){
@@ -259,6 +257,19 @@ app.controller('timeTrackingCtr',['$scope', '$interval', '$window', '$timeout', 
     }*/
 
 		$scope.timers[selectedTimer].time += 1;
+  }
+
+  $scope.getWorkedTime = function(){
+    workedTime = 0;
+
+    $scope.timers.forEach(function(timer) {
+      workedTime += timer.time;
+    });
+
+    if (workedTime > 0)
+      return $scope.displayTime(workedTime);
+    else
+		  return false;
   }
 
   $scope.$on('$destroy', function() {

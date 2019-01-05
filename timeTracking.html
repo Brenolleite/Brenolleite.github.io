@@ -59,6 +59,12 @@
             </td>
         	</tr>
         <tbody>
+        <tfoot ng-if="getWorkedTime()">
+            <tr>
+              <td>Total: {{getWorkedTime()}}</td>
+              <td></td>
+            </tr>
+          </tfoot>
       </table>
     </div>
   </div>
