@@ -457,6 +457,17 @@ header {
 	margin-bottom:15px;
 }
 
+.profile-round {
+	border-radius:50%;
+	object-fit:cover;
+}
+
+.hero-profile-image {
+	width:320px;
+	height:320px;
+	max-width:100%;
+}
+
 .social-wrapper h2 {
 	display:inline;
 	padding:0 15px 0 15px;
@@ -1090,6 +1101,7 @@ blockquote footer {
 
 .contact-image {
 	width:164px;
+	height:164px;
 	padding-bottom:15px;
 }
 
@@ -1255,6 +1267,7 @@ blockquote footer {
 	
 	.contact-image {
 		width:74px;
+		height:74px;
 	}
 		
 }
@@ -1397,6 +1410,11 @@ blockquote footer {
 	
 	.jumbotron img {
 		max-height:150px;
+	}
+
+	.hero-profile-image {
+		width:150px;
+		height:150px;
 	}
 	
 	#about {
