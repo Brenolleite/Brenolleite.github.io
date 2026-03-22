@@ -102,17 +102,15 @@
 
                 <div class="col-md-7 col-sm-6 scrollpoint sp-effect1"><!-- Profile description -->
                 	<h3>Breno Leite</h3>
-                  	<p class="about" ng-show="currentLang === 'en_US'">
+	                  	<p class="about" ng-show="currentLang === 'en_US'">
                           First of all I am a computer lover, and I have been studying these machines since 2009.
                           After all this time, one thing I have learned is that it is impossible to know everything about them.
                           The areas I am more familiar with are software development, web development, game development, machine learning
                           and computer vision. I love to face new challenges, and I like to solve them in the best way possible.
                           That is the main reason why I chose Computer Science as my Major, on this field I can develop tools which will
-                          help people and it is full of challenges. I am currently part of the
-                          <a href='https://recodbr.wordpress.com/'>RECOD</a> research group, in the <a href='http://www.ic.unicamp.br/'>Institute of Computing</a> at Unicamp.
-                          My research focus is on automatic violence detection on videos through computer vision and machine learning techniques.
-                          I am also a data engineer at one of the biggest banks in Brazil - <a href='https://www.itau.com.br/'>Itaú Unibanco</a>, where I deal 
-                          with different problems in the big data world. 
+                          help people and it is full of challenges.
+                          Currently, I lead a multidisciplinary team at the Itaú Institute of Science and Technology (ICTi), developing agentic GenAI solutions with augmented memory,
+                          self-evolving agents, and intelligent communication protocols.
                     </p>
                     <p class="about" ng-show="currentLang === 'pt_BR'">
                           Acima de muitas coisas sou uma pessoa apaixonada por computadores, venho estudando o funcionamento dessas máquinas desde 2009. 
@@ -120,61 +118,75 @@
                           sou mais familiarizado são desenvolvimento de softwares, desenvolvimento web, desenvolvimento de jogos, aprendizagem de máquinas
                           e visão computacional. Eu adoro enfrentar novos desafios, normalmente tento resolvê-los da melhor forma possível.
                           Esse foi o motivo de ter escolhido me tornar um cientista da computação, essa área me proporciona as condições necessárias para
-                          desenvolver ferramentas que ajude pessoas e além disso é uma área cheia de desafios. Atualmente, faço parte do grupo de pesquisas
-                          <a href='https://recodbr.wordpress.com/'>RECOD</a>, que fica no <a href='http://www.ic.unicamp.br/'>Instituto de Computação</a> da Unicamp.
-                          Minha pesquisa tem como foco a detecção automática de violência através de técnicas de visão computacional e aprendizado de máquina.
-                          Sou também um dos engenheiros de dados de um dos maiores bancos do Brasil - <a href='https://www.itau.com.br/'>Itaú Unibanco</a>, onde
-                          eu trabalho com diferentes problemas relacionados com big data.
+                          desenvolver ferramentas que ajude pessoas e além disso é uma área cheia de desafios.
+                          Atualmente lidero um time multidisciplinar no Instituto de Ciência e Tecnologia do Itaú (ICTi), desenvolvendo soluções GenAI agentic com memória aumentada,
+                          agentes autoevolutivos e protocolos inteligentes de comunicação.
                     </p>
                </div><!-- Profile description end-->
 
               <div class="col-md-3 col-sm-4 scrollpoint sp-effect2"><!--Timeline-->
 
                   <div class="timeline">
+                     <a href="http://icti.org.br/">
+                        <div class="event event-work">
+                            <div class="event-info">
+                                <div class="date">2024</div>
+                            </div>
+                            <span>{{text.lifeEvents[0]}}</span>
+                        </div>
+                     </a>
+                     <a href="https://www.iese.edu/">
+                        <div class="event event-study">
+                            <div class="event-info">
+                                <div class="date">2022</div>
+                            </div>
+                            <span>{{text.lifeEvents[1]}}</span>
+                        </div>
+                     </a>
                      <a href="https://www.itau.com.br/">
-                        <div class="event">
+                        <div class="event event-work">
                             <div class="event-info">
                                 <div class="date">2018</div>
                             </div>
-                            <span>{{text.lifeEvents[4]}}</span>
+                            <span>{{text.lifeEvents[2]}}</span>
                         </div>
                      </a>
                      <a href="http://www.unicamp.br/">
-                        <div class="event">
+                        <div class="event event-study">
                             <div class="event-info">
                                 <div class="date">2017</div>
                             </div>
                             <span>{{text.lifeEvents[3]}}</span>
                         </div>
                      </a>
-                     <a href="http://www.virtual.inf.br/">
-                      <div class="event">
+                     <a href="https://www.quiver.net.br/">
+                      <div class="event event-work">
                           <div class="event-info">
                              <div class="date">2015</div>
                           </div>
-                      	  <span>{{text.lifeEvents[2]}}</span>
+                      	  <span>{{text.lifeEvents[4]}}</span>
                       </div>
                      </a>
                      <a href="http://www.msstate.edu/">
-                        <div class="event">
+                        <div class="event event-study">
                             <div class="event-info">
                                 <div class="date">2014</div>
                             </div>
-                            <span>{{text.lifeEvents[1]}}</span>
+                            <span>{{text.lifeEvents[5]}}</span>
                         </div>
                      </a>
                      <a href="http://www.utfpr.edu.br/">
-                        <div class="event">
+                        <div class="event event-study">
                             <div class="event-info">
                                 <div class="date">2011</div>
                             </div>
-                            <span>{{text.lifeEvents[0]}}</span>
+                            <span>{{text.lifeEvents[6]}}</span>
                         </div>
                      </a>
                   </div><!--timeline-->
                   <div class="timeline timeline_resume">
                     <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'en_US'" href="Files/en_US-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Resume</a>
-                    <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'pt_BR'" href="Files/pt_BR-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Currículo </a>
+                    <a id="skills-toggle" class="btn btn-primary" ng-show="currentLang === 'pt_BR'" href="Files/en_US-Resume.pdf"><i class="fa fa-arrow-circle-o-down"></i> Currículo </a>
                   </div>
               </div><!--col 3 end-->
             </div><!--Row about end-->
@@ -307,7 +319,7 @@
                             <img src="image/Breno_Leite.jpeg" class="contact-image image-responsive hidden-xs hidden-sm profile-round" alt="" />
                             	<div class="contact-info">
                                 	<p>Breno Leite</p>
-                                    <p>Campinas, São Paulo</p>
+                                    <p>São Paulo</p>
                                 </div>
                             </div>
                     	</div>

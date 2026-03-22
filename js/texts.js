@@ -3,7 +3,7 @@ var app = angular.module('myHomePage', ['ngCookies']);
 var pt = {
     lang: ['Inglês', 'Português'],
     navbar: ['Sobre Mim', 'Interesses', 'Contato'],
-    lifeEvents: ['Ciência da Computação - UTFPR', 'Ciência da Computação - Mississippi State University', 'Desenvolvedor Web - Virtual Softwares', 'Mestado em Ciência da Computação - Unicamp', 'Engenheiro de Dados - Itaú Unibanco'],
+    lifeEvents: ['Líder em Engenharia de IA - ICTi', 'IESE MBA', 'Líder em Engenharia de Dados - Itaú Unibanco', 'Mestrado em Ciência da Computação - Unicamp', 'Desenvolvedor Web - Quiver', 'Ciência da Computação - Mississippi State University', 'Ciência da Computação - UTFPR'],
     interestsTitle: 'Interesses',
     interestsPhrase: 'Sou um cientista da computação com anseios em resolver problemas em diversas áreas',
     interestsTitles: ['Aprendizado de máquina', 'Desenvolvimento de Software'],
@@ -17,7 +17,7 @@ var pt = {
 var en = {
     lang: ['English', 'Portuguese'],
     navbar: ['About me', 'Interests', 'Contact'],
-    lifeEvents: ['Computer Science - UTFPR', 'Computer Science - Mississippi State University', 'Web Developer - Virtual Softwares', 'M.Sc. in Computer Science - Unicamp', 'Data Engineer - Itaú Unibanco'],
+    lifeEvents: ['Lead AI Engineer - ICTi', 'IESE MBA', 'Lead Data Engineer - Itaú Unibanco', 'M.Sc. in Computer Science - Unicamp', 'Web Developer - Quiver', 'Computer Science - Mississippi State University', 'Computer Science - UTFPR'],
     interestsTitle: 'Interests',
     interestsPhrase: 'I am a computer scientist, who loves to solve problems on diverse areas',
     interestsTitles: ['Machine Learning', 'Software Development'],

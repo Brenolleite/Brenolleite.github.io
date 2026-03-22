@@ -647,7 +647,6 @@ header {
     position: absolute;
     right: 5px;
     top: -7px;
-	content:"\f024";
 	text-align:center;
 	font-size:14px;
 	border-radius:50%;
@@ -655,6 +654,14 @@ header {
 	border:6px solid #34495E;
 	display: inline-block;
 	padding-top:2px;
+}
+
+.event-work .event-info:after {
+	content:"\f024";
+}
+
+.event-study .event-info:after {
+	content:"\f19d";
 }
 
 .event .event-info .date {
